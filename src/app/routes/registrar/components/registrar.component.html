@@ -1,7 +1,12 @@
 <div class="container">
   <form class="form" [formGroup]="formGroup">
     <mat-form-field>
-      <input matInput type="text" placeholder="Nome*" formControlName="nome" />
+      <input
+        matInput
+        type="text"
+        placeholder="Nome*"
+        formControlName="nome"
+        maxlength="100" />
       <button
         *ngIf="formGroup.controls.nome.value"
         matSuffix
@@ -20,7 +25,8 @@
         matInput
         type="text"
         placeholder="Email*"
-        formControlName="email" />
+        formControlName="email"
+        maxlength="100" />
       <button
         *ngIf="formGroup.controls.email.value"
         matSuffix
@@ -35,7 +41,13 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="text" placeholder="CPF*" formControlName="cpf" />
+      <input
+        matInput
+        type="text"
+        placeholder="CPF*"
+        formControlName="cpf"
+        maxlength="14"
+        mask="000.000.000-00" />
       <button
         *ngIf="formGroup.controls.cpf.value"
         matSuffix
@@ -54,7 +66,8 @@
         matInput
         type="text"
         placeholder="Celular"
-        formControlName="celular" />
+        formControlName="celular"
+        mask="(00) 0 0000-0000" />
       <button
         *ngIf="formGroup.controls.celular.value"
         matSuffix
@@ -90,7 +103,9 @@
     </mat-form-field>
 
     <div class="botoes">
+      <mat-spinner *ngIf="loadingButton" [diameter]="24"></mat-spinner>
       <button
+        *ngIf="!loadingButton"
         mat-raised-button
         color="primary"
         [disabled]="formGroup.invalid || formGroup.pristine"
