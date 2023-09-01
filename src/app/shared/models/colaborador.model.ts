@@ -2,7 +2,7 @@
 export interface Colaborador {
   nome: string;
   email: string;
-  cpf: number;
+  cpf: string;
   celular?: number;
   conhecimentos: string[];
 }
