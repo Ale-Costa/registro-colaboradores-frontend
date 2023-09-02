@@ -4,7 +4,7 @@ import { RegistrarComponent } from './routes/registrar/components/registrar.comp
 
 const routes: Routes = [
   {
-    path: 'registrar',
+    path: ':colaborador/registrar',
     component: RegistrarComponent,
   },
 ];
