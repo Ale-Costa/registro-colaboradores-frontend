@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegistrarComponent } from './routes/registrar/components/registrar.component';
 import { ValidarComponent } from './routes/validar/validar.component';
+import { RegistrarComponent } from './routes/registrar/registrar.component';
+import { DefaultComponent } from './routes/default/default.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: 'validar',
     component: ValidarComponent,
   },
+  {
+    path: '**',
+    component:DefaultComponent
+  }
 ];
 
 @NgModule({

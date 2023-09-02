@@ -1,11 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Colaborador } from 'src/app/shared/models/colaborador.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ColaboradorController } from 'src/app/shared/controllers/colaborador.controller';
-import { delay, map, take, tap } from 'rxjs';
+import {  take, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { TransformarParametro } from 'src/app/shared/utils/transformar-parametro/transformar-parametro';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 
 type ColaboradorForm = {
   nome: FormControl<string>;
@@ -19,6 +28,20 @@ type ColaboradorForm = {
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
   styleUrls: ['./registrar.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatSnackBarModule,
+    NgxMaskDirective,
+    ReactiveFormsModule,
+  ],
 })
 export class RegistrarComponent {
   formGroup: FormGroup<ColaboradorForm>;
