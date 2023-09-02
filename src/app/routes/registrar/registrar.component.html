@@ -1,12 +1,7 @@
 <div class="container">
   <form class="form" [formGroup]="formGroup">
     <mat-form-field>
-      <input
-        matInput
-        type="text"
-        placeholder="Nome*"
-        formControlName="nome"
-        maxlength="100" />
+      <input matInput type="text" placeholder="Nome*" formControlName="nome" maxlength="100" />
       <button
         *ngIf="formGroup.controls.nome.value"
         matSuffix
@@ -21,12 +16,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input
-        matInput
-        type="email"
-        placeholder="Email*"
-        formControlName="email"
-        maxlength="100" />
+      <input matInput type="email" placeholder="Email*" formControlName="email" maxlength="100" />
       <button
         *ngIf="formGroup.controls.email.value"
         matSuffix
@@ -44,13 +34,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input
-        matInput
-        type="text"
-        placeholder="CPF*"
-        formControlName="cpf"
-        maxlength="14"
-        mask="000.000.000-00" />
+      <input matInput type="text" placeholder="CPF*" formControlName="cpf" maxlength="14" mask="000.000.000-00" />
       <button
         *ngIf="formGroup.controls.cpf.value"
         matSuffix
@@ -65,12 +49,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input
-        matInput
-        type="text"
-        placeholder="Celular"
-        formControlName="celular"
-        mask="(00) 0 0000-0000" />
+      <input matInput type="text" placeholder="Celular" formControlName="celular" mask="(00) 0 0000-0000" />
       <button
         *ngIf="formGroup.controls.celular.value"
         matSuffix
@@ -82,10 +61,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select
-        placeholder="Conhecimentos"
-        formControlName="conhecimentos"
-        multiple>
+      <mat-select placeholder="Conhecimentos" formControlName="conhecimentos" multiple>
         <mat-select-trigger>
           {{ formGroup.controls.conhecimentos.value }}
         </mat-select-trigger>
@@ -111,11 +87,11 @@
         *ngIf="!loadingButton"
         mat-raised-button
         color="primary"
-        [disabled]="formGroup.invalid || formGroup.pristine"
+        [disabled]="formGroup.invalid"
         (click)="registrar()">
         Registrar
       </button>
-      <button mat-raised-button (click)="formGroup.reset()">Limpar</button>
+      <button mat-stroked-button color="primary" (click)="formGroup.reset()">Limpar</button>
     </div>
   </form>
 </div>

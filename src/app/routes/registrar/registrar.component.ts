@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Colaborador } from 'src/app/shared/models/colaborador.model';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ColaboradorController } from 'src/app/shared/controllers/colaborador.controller';
-import {  take, tap } from 'rxjs';
+import { take, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { TransformarParametro } from 'src/app/shared/utils/transformar-parametro/transformar-parametro';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
-import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
+import { NgxMaskDirective } from 'ngx-mask';
 
 type ColaboradorForm = {
   nome: FormControl<string>;
@@ -46,7 +46,7 @@ type ColaboradorForm = {
 export class RegistrarComponent {
   formGroup: FormGroup<ColaboradorForm>;
   loadingButton: boolean;
-  readonly conhecimentos: string[] = ['Git', 'React', 'PHP', 'NodeJS', 'DevOps', 'Banco de Dados', 'TypeScript'];
+  readonly conhecimentos = ['Git', 'React', 'PHP', 'NodeJS', 'DevOps', 'Banco de Dados', 'TypeScript'];
 
   constructor(
     private readonly colaboradorController: ColaboradorController,
@@ -66,15 +66,12 @@ export class RegistrarComponent {
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required]],
       celular: [],
-      conhecimentos: ['', [Validators.required]],
+      conhecimentos: [[], [Validators.required]],
     });
   }
 
   private get colaborador(): Colaborador {
     return this.formGroup.value as Colaborador;
-  }
-  buscar() {
-    this.colaboradorController.buscarTodos().subscribe();
   }
 
   registrar() {
