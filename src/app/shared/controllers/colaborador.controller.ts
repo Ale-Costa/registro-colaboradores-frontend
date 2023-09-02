@@ -6,7 +6,7 @@ import { Colaborador } from '../models/colaborador.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ColaboradorService {
+export class ColaboradorController {
 
   constructor(private readonly http: HttpClient) { }
 
