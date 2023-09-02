@@ -1,0 +1,22 @@
+<div class="nome">
+  <h2>Informe seu nome</h2>
+
+  <mat-form-field>
+    <input matInput type="text" placeholder="Nome*" [formControl]="nomeFormControl" maxlength="100" />
+    <button
+      *ngIf="nomeFormControl.value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="nomeFormControl.reset()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button
+    class="botao-registrar"
+    mat-stroked-button
+    [color]="'primary'"
+    (click)="dialogRef.close(nomeFormControl.value)">
+    REGISTRAR
+  </button>
+</div>

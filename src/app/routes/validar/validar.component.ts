@@ -31,7 +31,7 @@ export class ValidarComponent implements OnInit {
     this.colaboradorController.buscarTodos().pipe(take(1)).subscribe(this.definirColaboradores);
   }
 
-  private definirColaboradores = (colaboradores: Colaborador[]) => {
+  private definirColaboradores = (colaboradores: Colaborador[]):void => {
     this.colaboradores = colaboradores;
   };
 
