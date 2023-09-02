@@ -38,7 +38,7 @@ export class ValidarComponent implements OnInit {
   abrirModalDados(colaborador: Colaborador): void {
     const dialogRef = this.dialog.open(ValidarDadosComponent, {
       data: colaborador,
-      width: '50vh',
+      width: '30vw',
     });
 
     dialogRef.afterClosed().subscribe(() => {
