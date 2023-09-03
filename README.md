@@ -1,3 +1,23 @@
+## Instruções para execução do front-end
+
+1.Instalação das dependências do projeto
+
+```bash
+npm install
+```
+
+2.Execução do projeto
+
+```bash
+npm run start
+```
+
+O projeto estará rodando no endereço `http://localhost:4200/`
+
+Voce poderá visualizar os colaboradores registrados pela rota `http://localhost:4200/registros`, pode tambem se registrar como um colaborador pela rota `http://localhost:4200/NOMEDOCOLABORADOR/registrar` ou caso acesse alguma rota invalida voce será redirecionado para uma pagina padrão onde será fornecido outra forma de acesso a estas rotas.
+
+---
+
 # RegistroColaborador
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
