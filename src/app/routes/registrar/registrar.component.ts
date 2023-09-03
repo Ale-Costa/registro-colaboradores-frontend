@@ -5,7 +5,6 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ColaboradorController } from 'src/app/shared/controllers/colaborador.controller';
 import { take, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { TransformarParametro } from 'src/app/shared/utils/transformar-parametro/transformar-parametro';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -59,10 +58,9 @@ export class RegistrarComponent {
 
   private buildFormGroup(): FormGroup {
     const nomeColaborador = this.route.snapshot.paramMap.get('colaborador') || '';
-    const nomeLegivel = TransformarParametro.transformarParaNomeLegivel(nomeColaborador);
 
     return this.fb.group({
-      nome: [nomeLegivel, [Validators.required]],
+      nome: [nomeColaborador, [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required]],
       celular: [],

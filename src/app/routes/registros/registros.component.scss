@@ -7,26 +7,37 @@
 }
 
 .colaboradores {
-  margin-top: 10%;
+  border-radius: 20px;
   height: 80vh;
 }
 
+.registros {
+  max-height: 70%;
+  overflow-y: scroll;
+  text-align: center;
+}
+
 h1 {
+  font-weight: bold;
   padding-top: 16px;
   text-align: center;
-  font-weight: bold;
 }
 
 mat-card {
-  margin: 16px;
   border: 1px lightgray solid;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 16px;
 }
 
 mat-card-content {
   display: flex;
   flex-direction: row;
   gap: 16px;
+}
+
+mat-form-field {
+  padding: 16px;
+  width: calc(100% - 32px);
 }

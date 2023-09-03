@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="colaboradores">
+    <h1>Colaboradores</h1>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Pesquisar" [formControl]="pesquisaFormControl" maxlength="100" />
+      <button
+        *ngIf="pesquisaFormControl.value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="pesquisaFormControl.reset()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="registros">
+      <h3 *ngIf="!colaboradores.length">Nenhum colaborador encontrado</h3>
+      <mat-card *ngFor="let colaborador of colaboradores">
+        <mat-card-content>
+          <span> <strong>Nome: </strong>{{ colaborador.nome }}</span>
+          <span> <strong>CPF: </strong>{{ colaborador.cpf | mask: '000.000.000-00' }}</span>
+        </mat-card-content>
+        <mat-card-actions>
+          <button *ngIf="colaborador.validado === false" mat-stroked-button color="warn" [disabled]="true">
+            INVALIDO
+          </button>
+          <button *ngIf="colaborador.validado === null" mat-stroked-button (click)="abrirModalDados(colaborador)">
+            VALIDAR
+          </button>
+
+          <button *ngIf="colaborador.validado" mat-stroked-button [disabled]="true" style="color: green">
+            VALIDADO
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { NomeColaboradorComponent } from './nome-colaborador/nome-colaborador.component';
-import { TransformarParametro } from 'src/app/shared/utils/transformar-parametro/transformar-parametro';
 
 @Component({
   selector: 'app-default',
@@ -25,11 +24,10 @@ export class DefaultComponent {
     });
 
     dialogRef.afterClosed().subscribe((nome) => {
-      const nomeSemHifen = TransformarParametro.transformarNomeParaParametroRota(nome);
-      this.router.navigate([`${nomeSemHifen}`, 'registrar']);
+      this.router.navigate([`${nome}`, 'registrar']);
     });
   }
-  validar(): void {
-    this.router.navigate(['validar']);
+  registros(): void {
+    this.router.navigate(['registros']);
   }
 }
