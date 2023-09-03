@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { NomeColaboradorComponent } from './nome-colaborador/nome-colaborador.component';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-default',
@@ -23,7 +24,7 @@ export class DefaultComponent {
       width: '30vw',
     });
 
-    dialogRef.afterClosed().subscribe((nome) => {
+    dialogRef.afterClosed().pipe(take(1)).subscribe((nome) => {
       this.router.navigate([`${nome}`, 'registrar']);
     });
   }
