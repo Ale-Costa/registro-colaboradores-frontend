@@ -1,0 +1,16 @@
+<div class="container">
+  <div *ngIf="colaborador" class="dados">
+    <h2>Dados do colaborador</h2>
+
+    <h4><strong>Nome: </strong>{{ colaborador.nome }}</h4>
+    <h4><strong>E-mail: </strong>{{ colaborador.email }}</h4>
+    <h4><strong>CPF: </strong>{{ colaborador.cpf | mask: '000.000.000-00' }}</h4>
+    <h4><strong>Celular: </strong>{{ colaborador.celular || '' | mask: '(00) 00000-0000' }}</h4>
+    <h4><strong>Conhecimentos: </strong>{{ colaborador.conhecimentos }}</h4>
+
+    <div class="botoes">
+      <button mat-raised-button [color]="'primary'" (click)="validar()">VALIDAR</button>
+      <button mat-raised-button [color]="'warn'" (click)="invalidar()">INVALIDAR</button>
+    </div>
+  </div>
+</div>

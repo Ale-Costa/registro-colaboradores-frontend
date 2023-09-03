@@ -91,7 +91,12 @@
         (click)="registrar()">
         Registrar
       </button>
-      <button mat-stroked-button color="primary" (click)="formGroup.reset()">Limpar</button>
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="formGroup.reset(); formGroup.controls.conhecimentos.setValue([])">
+        Limpar
+      </button>
     </div>
   </form>
 </div>
